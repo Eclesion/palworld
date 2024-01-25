@@ -22,7 +22,7 @@ spec:
       - image: zachbierbaumafs/palworld
         name: palworld-server
         ports:
-        - containerPort: 8211
+        - containerPort: "8211"
           protocol: UDP
           name: palworld-server
         volumeMounts:
