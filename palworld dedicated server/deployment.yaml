@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: palworld-server
+  namespace: palworld
 spec:
   replicas: 1
   selector:
@@ -15,6 +16,8 @@ spec:
       labels:
         app: palworld-server
     spec:
+      nodeSelector:
+        node-type: worker
       containers:
       - image: zachbierbaumafs/palworld
         name: palworld-server
@@ -22,3 +25,28 @@ spec:
         - containerPort: 8211
           protocol: UDP
           name: palworld-server
+        volumeMounts:
+          - name: lv-storage
+            mountPath: /data
+        env:
+            - name: ALWAYS_UPDATE_ON_START
+              value: true
+            - name: MAX_PLAYERS
+              value: 12
+            - name: SERVER_NAME
+              value: Eclesions PalWorld Server
+            - name: SERVER_DESCRIPTION
+              value: Eclesions PalWorld Server powered by k3s Pi Cluster
+            - name: SERVER_PASSWORD
+              value: Qay123Qay
+            - name: RCON_ENABLED
+              value: true
+            - name: RCON_PORT
+              value: 25575
+            - name: ADMIN_PASSWORD
+              value: Qay123Qay231
+              
+      volumes:
+        - name: lv-storage
+          persistentVolumeClaim:
+            claimName: palworld-server-pvc
