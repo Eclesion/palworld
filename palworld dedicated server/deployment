@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palworld-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: palworld-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: palworld-server
+    spec:
+      containers:
+      - image: zachbierbaumafs/palworld
+        name: palworld-server
+        ports:
+        - containerPort: 8211
+          protocol: UDP
+          name: palworld-server
