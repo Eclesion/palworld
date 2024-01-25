@@ -7,7 +7,7 @@ spec:
     app: palworld-server
   type: LoadBalancer
   ports:
-    - name: palworld-server
+    - name: palworld-port
       protocol: UDP
       port: 8211
       targetPort: 8211
