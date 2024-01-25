@@ -31,19 +31,19 @@ spec:
         env:
             - name: ALWAYS_UPDATE_ON_START
               value: true
-            - name: MAX_PLAYERS
+              name: MAX_PLAYERS
               value: "12"
-            - name: SERVER_NAME
+              name: SERVER_NAME
               value: Eclesions PalWorld Server
-            - name: SERVER_DESCRIPTION
+              name: SERVER_DESCRIPTION
               value: Eclesions PalWorld Server powered by k3s Pi Cluster
-            - name: SERVER_PASSWORD
+              name: SERVER_PASSWORD
               value: Qay123Qay
-            - name: RCON_ENABLED
+              name: RCON_ENABLED
               value: true
-            - name: RCON_PORT
+              name: RCON_PORT
               value: "25575"
-            - name: ADMIN_PASSWORD
+              name: ADMIN_PASSWORD
               value: Qay123Qay231
               
       volumes:
